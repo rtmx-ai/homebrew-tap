@@ -5,10 +5,9 @@ class Aegis < Formula
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.0/aegis-0.1.0-macos-aarch64.tar.gz"
-      sha256 "db08cfcf2859e34c840d6b3c7fd4b737f8edf6c9b012399fbf07eab1f7f423af"
-    end
+    # ARM binary runs natively on Apple Silicon and via Rosetta 2 on Intel.
+    url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.0/aegis-0.1.0-macos-aarch64.tar.gz"
+    sha256 "db08cfcf2859e34c840d6b3c7fd4b737f8edf6c9b012399fbf07eab1f7f423af"
   end
 
   on_linux do
