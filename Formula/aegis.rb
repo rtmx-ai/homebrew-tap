@@ -1,22 +1,22 @@
 class Aegis < Formula
   desc "Terminal-native agentic AI pair programmer for CUI environments"
   homepage "https://github.com/rtmx-ai/aegis-cli"
-  version "0.1.0"
+  version "0.1.1"
   license "Apache-2.0"
 
   on_macos do
     # ARM binary runs natively on Apple Silicon and via Rosetta 2 on Intel.
-    url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.0/aegis-0.1.0-macos-aarch64.tar.gz"
-    sha256 "db08cfcf2859e34c840d6b3c7fd4b737f8edf6c9b012399fbf07eab1f7f423af"
+    url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.1/aegis-0.1.1-macos-aarch64.tar.gz"
+    sha256 "5ff4b8c2a17a99ae235f733a6ca27e255f406f7772bfa6c77fca39131bd282fb"
   end
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.0/aegis-0.1.0-linux-x86_64.tar.gz"
-      sha256 "bb5991289f980f12e820fd3e3df158d8a25bf59082b0b33e4075152f80cbd08b"
+      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.1/aegis-0.1.1-linux-x86_64.tar.gz"
+      sha256 "b86553a36d3a2051d88ce8fe69928a9e219523f6c268b77c6ee0a955c8a8fe29"
     elsif Hardware::CPU.arm?
-      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.0/aegis-0.1.0-linux-aarch64.tar.gz"
-      sha256 "86921a7f1c77687c9eb15fc7c665e09097fa71b3835e010a5ebf2d8465165d24"
+      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.1/aegis-0.1.1-linux-aarch64.tar.gz"
+      sha256 "83710dc8d65087f619f07868a91e0034fac81aa8228da9e4a5218f3947bd5910"
     end
   end
 
