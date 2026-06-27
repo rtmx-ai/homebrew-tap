@@ -1,52 +1,36 @@
-# Homebrew formula for aegis (REL-006/007).
-#
-# Installs the aegis binary + its bundled harness (OpenCode, ripgrep, config-seed,
-# llama-server) into the keg's libexec, and a bin/aegis wrapper that points aegis at that
-# libexec (AEGIS_LIBEXEC, REL-005). The model GGUF is side-loaded separately (air-gap) — it
-# is far too large for a bottle and must come via the staging flow, not brew.
-#
-# Tap usage:  brew install rtmx-ai/tap/aegis   (github.com/rtmx-ai/homebrew-tap)
-#
-# `version`, the per-platform `url`s, and `sha256`s are filled in at release time from the
-# dist/aegis-<version>-<os>-<arch>.tar.gz bundle tarballs (scripts/release.sh). This template
-# lives in the source repo; REL-007 publishes a filled copy to the tap as Formula/aegis.rb.
 class Aegis < Formula
-  desc "Air-gap-native agentic coding orchestrator (rtmx intent loop over a local model)"
+  desc "Terminal-native agentic AI pair programmer for CUI environments"
   homepage "https://github.com/rtmx-ai/aegis-cli"
-  version "0.0.0"
+  version "0.1.3"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
-      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-darwin-arm64.tar.gz"
-      sha256 "REPLACE_DARWIN_ARM64_SHA256"
+      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.3/aegis-0.1.3-macos-aarch64.tar.gz"
+      sha256 "30d79f8b4a6da7f14bf418a78771b17d319481f144829cbb815065cd0ea43ad0"
     end
     on_intel do
-      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-darwin-amd64.tar.gz"
-      sha256 "REPLACE_DARWIN_AMD64_SHA256"
+      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.3/aegis-0.1.3-macos-x86_64.tar.gz"
+      sha256 "df34ea54bde1603c8a5a156b7826107ed521917a5fa4b6c3b5e679571837c63f"
     end
   end
+
   on_linux do
     on_arm do
-      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-linux-arm64.tar.gz"
-      sha256 "REPLACE_LINUX_ARM64_SHA256"
+      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.3/aegis-0.1.3-linux-aarch64.tar.gz"
+      sha256 "dc1c8f6981327b286c7dce90e97c8144db4d504db5942f88ccd795938bc260af"
     end
     on_intel do
-      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-linux-amd64.tar.gz"
-      sha256 "REPLACE_LINUX_AMD64_SHA256"
+      url "https://github.com/rtmx-ai/aegis-cli/releases/download/v0.1.3/aegis-0.1.3-linux-x86_64.tar.gz"
+      sha256 "5779f859bb5016378f0337612027b95f64b6f509b75dff872b1b97901f01dc9b"
     end
   end
 
   def install
-    # Co-locate aegis with its helpers in libexec, then expose a bin wrapper that pins
-    # AEGIS_LIBEXEC to the keg's libexec so the helpers resolve regardless of how bin/aegis
-    # is invoked (REL-005).
-    libexec.install "bin/aegis"
-    libexec.install Dir["libexec/*"]
-    (bin/"aegis").write_env_script libexec/"aegis", AEGIS_LIBEXEC: libexec.to_s
+    bin.install "aegis"
   end
 
   test do
-    assert_match "aegis", shell_output("#{bin}/aegis version")
+    assert_match "aegis", shell_output("#{bin}/aegis --version")
   end
 end
