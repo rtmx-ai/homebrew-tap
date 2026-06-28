@@ -19,17 +19,17 @@ class Aegis < Formula
   on_macos do
     on_arm do
       url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-darwin-arm64.tar.gz"
-      sha256 "ffaca622d683d6fca455903ebb3a8f43504b6c5a70648d840997bcc947fb564d"
+      sha256 "9c2d759de18c85e5f62a9ff96c09f6aa1bbf299715133663811a8452b6ed3e6c"
     end
   end
   on_linux do
     on_arm do
       url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-linux-arm64.tar.gz"
-      sha256 "efbf0a3e17b67fef2269c06ed1f2d40e317e6de097ecbb41bbbc24fea75c1e29"
+      sha256 "e728d2ec9e8ccfc4b6b61113ccafcd446a92c92b71f53798eace18f87e9db218"
     end
     on_intel do
       url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-linux-amd64.tar.gz"
-      sha256 "a7608b580929e35a01179d1cc8de5ebd5bc9380bae392eb3cdff9f9dc2a2e28f"
+      sha256 "10c25e20ca2b8d35c13bbd42db4e7e2dbe1afc075f63a02295347763b8bf3512"
     end
   end
 
