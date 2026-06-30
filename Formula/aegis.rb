@@ -13,23 +13,23 @@
 class Aegis < Formula
   desc "Air-gap-native agentic coding orchestrator (rtmx intent loop over a local model)"
   homepage "https://github.com/rtmx-ai/aegis-cli"
-  version "1.7.1"
+  version "1.8.0"
   license "Apache-2.0"
 
   on_macos do
     on_arm do
       url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-darwin-arm64.tar.gz"
-      sha256 "5f209cbb8ab46418735379c81a220573b59b8d64d406622f79c98004aa424315"
+      sha256 "6cf1217dc84afa240d3d54449393a335884814cafb6ce28c64b8f0587878a260"
     end
   end
   on_linux do
     on_arm do
       url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-linux-arm64.tar.gz"
-      sha256 "59deb7f16705253fdf10d5c508b61bce89ed967a61055144c83d1103b4bce6fd"
+      sha256 "c1a9ff8d7c5bb503877e6cbb3c9ad88aed305a9f722c81892a4f93473a5bbaad"
     end
     on_intel do
       url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-linux-amd64.tar.gz"
-      sha256 "00ea9f92bef68da3fb4cf8701df61c269e9cd579e65ec153ead876b7e2282550"
+      sha256 "4d880df66ae2b166bc1dc94b5383f4ec1f72dc3e52a0c912dcaa4e93ff1bbbb4"
     end
   end
 
