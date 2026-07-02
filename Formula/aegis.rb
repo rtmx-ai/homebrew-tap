@@ -16,8 +16,6 @@ class Aegis < Formula
   version "1.9.0"
   license "Apache-2.0"
 
-  on_macos do
-  end
   on_linux do
     on_arm do
       url "https://github.com/rtmx-ai/aegis-cli/releases/download/v#{version}/aegis-#{version}-linux-arm64.tar.gz"
