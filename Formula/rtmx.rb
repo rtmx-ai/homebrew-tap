@@ -5,21 +5,21 @@
 class Rtmx < Formula
   desc "Requirements Traceability Matrix toolkit"
   homepage "https://rtmx.ai"
-  version "1.9.0"
+  version "1.10.0"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.9.0/rtmx_1.9.0_darwin_amd64.tar.gz"
-      sha256 "76c3d3d42c257056b6c17f89e641e15ac2f2d6229b0cb142e68e51c0d1e56ab6"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.10.0/rtmx_1.10.0_darwin_amd64.tar.gz"
+      sha256 "50bf75e358ff600993d41ffb91dad00dfd1365163652ec3b185bc958c308933f"
 
       define_method(:install) do
         bin.install "rtmx"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.9.0/rtmx_1.9.0_darwin_arm64.tar.gz"
-      sha256 "25e71552d344d463e33a9547dcd7d6e793e1b08feb7af74b6352504455ce6ad2"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.10.0/rtmx_1.10.0_darwin_arm64.tar.gz"
+      sha256 "105bf84e5a9cb8fbd0672f85501c9f6893d0f855214c7aa627fb9e127253c794"
 
       define_method(:install) do
         bin.install "rtmx"
@@ -29,15 +29,15 @@ class Rtmx < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.9.0/rtmx_1.9.0_linux_amd64.tar.gz"
-      sha256 "e1214cc4b55646c25e3c6dfdd6cdf655d7412c7321e0905c64f150730f362b64"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.10.0/rtmx_1.10.0_linux_amd64.tar.gz"
+      sha256 "ac46645e8fe5c9072b30b1d3212d95b3a30cef788dfcbd005639a1c6eba865ed"
       define_method(:install) do
         bin.install "rtmx"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.9.0/rtmx_1.9.0_linux_arm64.tar.gz"
-      sha256 "a3da61b91ae3fd86ce2c246f72bd6f35c96f7af959c2a294121aa64f8e2d920f"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.10.0/rtmx_1.10.0_linux_arm64.tar.gz"
+      sha256 "717adda26109ac4ed76975ff54ab8543e024b5a76e8ba3c38dde22b44bbceced"
       define_method(:install) do
         bin.install "rtmx"
       end
