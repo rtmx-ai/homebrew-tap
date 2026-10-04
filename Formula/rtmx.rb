@@ -5,21 +5,21 @@
 class Rtmx < Formula
   desc "Requirements Traceability Matrix toolkit"
   homepage "https://rtmx.ai"
-  version "1.12.3"
+  version "1.12.4"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.3/rtmx_1.12.3_darwin_amd64.tar.gz"
-      sha256 "496645a7ca9c9bf40a1ec6512a59f0b800d46a1b8e9372e277a09c4ac64890b2"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.4/rtmx_1.12.4_darwin_amd64.tar.gz"
+      sha256 "2b5e9e2a37081e81e5585d51c1472447678d40fbeb1545d71156369f6ec03398"
 
       define_method(:install) do
         bin.install "rtmx"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.3/rtmx_1.12.3_darwin_arm64.tar.gz"
-      sha256 "ddaf19a7985763833a9dd6c24d2d35031eefc52349e54def5af145eb217e729f"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.4/rtmx_1.12.4_darwin_arm64.tar.gz"
+      sha256 "2a429a08c731fa9282f7ef24148020140e65c215bc3694789375d0fb29eb698a"
 
       define_method(:install) do
         bin.install "rtmx"
@@ -29,15 +29,15 @@ class Rtmx < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.3/rtmx_1.12.3_linux_amd64.tar.gz"
-      sha256 "4492fde86d9f60072d0edcf052e510f4d613b33605dc0ef5370a538cf7425274"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.4/rtmx_1.12.4_linux_amd64.tar.gz"
+      sha256 "b0981902702e907c78333736b55ac11cac910481c88742d188defdce1cf9e255"
       define_method(:install) do
         bin.install "rtmx"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.3/rtmx_1.12.3_linux_arm64.tar.gz"
-      sha256 "fca4428ce27194aedae3de7c7ba2a6101c851372ab7224a2122656310f6ad753"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v1.12.4/rtmx_1.12.4_linux_arm64.tar.gz"
+      sha256 "757b35d3f4b4fc09cd06bac182fdc76a8c4f6d6000600a581fea79b940448342"
       define_method(:install) do
         bin.install "rtmx"
       end
