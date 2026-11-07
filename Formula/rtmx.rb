@@ -5,13 +5,13 @@
 class Rtmx < Formula
   desc "Requirements Traceability Matrix toolkit (CLI + verification broker)"
   homepage "https://rtmx.ai"
-  version "2.0.1"
+  version "2.0.2"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.1/rtmx_2.0.1_darwin_amd64.tar.gz"
-      sha256 "583a8a603836353823544221b73da5bdba93407d7b9bc766296a30a5f54bf300"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_darwin_amd64.tar.gz"
+      sha256 "d00cecd5c3fc9f4eb7c93d836adb9a332c04a3917987e9638bafad5043890f76"
 
       define_method(:install) do
         bin.install "rtmx"
@@ -24,8 +24,8 @@ class Rtmx < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.1/rtmx_2.0.1_darwin_arm64.tar.gz"
-      sha256 "180ab7e017afbdf4aaf92add6182d6ef886de65be4cfe909c71298462b113930"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_darwin_arm64.tar.gz"
+      sha256 "107b0e3cf19b8f821331cfe1dbb66be0f2c525319a0b1dec88e3bd55b6d3601b"
 
       define_method(:install) do
         bin.install "rtmx"
@@ -41,8 +41,8 @@ class Rtmx < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.1/rtmx_2.0.1_linux_amd64.tar.gz"
-      sha256 "658fc58a6f68f7c3bb02c64d6a3e40af5182ad6a87453f4eb21c3e7bc802b043"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_linux_amd64.tar.gz"
+      sha256 "b1904f9ef1884108f8852b047f3a2a5dfb2ed94eedacc86e338fab4a25b052a5"
       define_method(:install) do
         bin.install "rtmx"
         (libexec/"rtmx").mkpath
@@ -54,8 +54,8 @@ class Rtmx < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.1/rtmx_2.0.1_linux_arm64.tar.gz"
-      sha256 "353c1db3ea8ec46cd8174076f185967de215c8c6a932042ef8eac7807e593d28"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_linux_arm64.tar.gz"
+      sha256 "0374d392f559668e2624e6d8090b641471e972df0a000fcb1965a0fa812fd730"
       define_method(:install) do
         bin.install "rtmx"
         (libexec/"rtmx").mkpath
@@ -68,15 +68,22 @@ class Rtmx < Formula
     end
   end
 
+  def post_install
+    ohai "Enabling RTMX verification broker (Admin may be requested once)"
+    system bin/"rtmx", "broker", "install", "--prefix=#{prefix}"
+  rescue
+    opoo "Broker enable deferred; first `rtmx verify` will elevate once"
+  end
+
   def caveats
     <<~EOS
-      The verification broker ships with this formula. Enable it once (Admin):
+      The verification broker ships with this formula. `brew install` /
+      `brew upgrade` run `post_install` to enable or reload it (Admin may
+      be requested once). If that step is skipped, the first `rtmx verify`
+      elevates once. Steady-state `rtmx verify` does not prompt.
 
-        sudo rtmx broker install --prefix=#{prefix}
-
-      Upgrading the formula refreshes the staged broker binary; re-run
-      `sudo rtmx broker upgrade --prefix=#{prefix}` to reload the service.
-      `rtmx verify` never prompts for administrator credentials.
+        rtmx broker status
+        rtmx broker install --prefix=#{prefix}   # manual / fleet
     EOS
   end
 
