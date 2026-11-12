@@ -5,13 +5,13 @@
 class Rtmx < Formula
   desc "Requirements Traceability Matrix toolkit (CLI + verification broker)"
   homepage "https://rtmx.ai"
-  version "2.0.2"
+  version "2.0.3"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_darwin_amd64.tar.gz"
-      sha256 "d00cecd5c3fc9f4eb7c93d836adb9a332c04a3917987e9638bafad5043890f76"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.3/rtmx_2.0.3_darwin_amd64.tar.gz"
+      sha256 "e9dd4bff1fb7471c50506f56c862280d521db53ff09d938767ddb0e5527a26a0"
 
       define_method(:install) do
         bin.install "rtmx"
@@ -24,8 +24,8 @@ class Rtmx < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_darwin_arm64.tar.gz"
-      sha256 "107b0e3cf19b8f821331cfe1dbb66be0f2c525319a0b1dec88e3bd55b6d3601b"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.3/rtmx_2.0.3_darwin_arm64.tar.gz"
+      sha256 "652408a34135b556f4b0da65f6ca60c02f0b025eb363b1d7343cb731bcd272a7"
 
       define_method(:install) do
         bin.install "rtmx"
@@ -41,8 +41,8 @@ class Rtmx < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_linux_amd64.tar.gz"
-      sha256 "b1904f9ef1884108f8852b047f3a2a5dfb2ed94eedacc86e338fab4a25b052a5"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.3/rtmx_2.0.3_linux_amd64.tar.gz"
+      sha256 "e541c5fdb3938fcf39ec3f56ff14eea407dbc8a14cb629c4e4cf631494ad58e1"
       define_method(:install) do
         bin.install "rtmx"
         (libexec/"rtmx").mkpath
@@ -54,8 +54,8 @@ class Rtmx < Formula
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.2/rtmx_2.0.2_linux_arm64.tar.gz"
-      sha256 "0374d392f559668e2624e6d8090b641471e972df0a000fcb1965a0fa812fd730"
+      url "https://github.com/rtmx-ai/rtmx/releases/download/v2.0.3/rtmx_2.0.3_linux_arm64.tar.gz"
+      sha256 "88ced2fbdb9d2f25ee689bda3420ccf173200bebdbca007e90dfa60dbf006c4e"
       define_method(:install) do
         bin.install "rtmx"
         (libexec/"rtmx").mkpath
